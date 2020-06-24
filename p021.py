@@ -1,8 +1,11 @@
+from eulerlib import *
+
+
 def main():
     table = {}
     result = 0
     for i in range(1, 10000):
-        divs_sum = sum(j for j in range(1, i) if i % j == 0)
+        divs_sum = sum(proper_divisors(i))
         if divs_sum in table and table[divs_sum] == i:
             print(i, divs_sum)
             result += divs_sum + i

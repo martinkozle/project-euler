@@ -1,12 +1,4 @@
-def proper_divisors(n):
-    result = {1}
-    i = 2
-    while i * i <= n:
-        if n % i == 0:
-            result.add(i)
-            result.add(n // i)
-        i += 1
-    return sorted(result)
+from eulerlib import *
 
 
 def main():
