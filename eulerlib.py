@@ -9,19 +9,22 @@ def is_prime(n):
     return True
 
 
-def prime_generator(limit):
-    if limit < 2:
-        return []
-    primes = [2]
-    for i in range(3, limit + 1):
+def prime_generator(*, limit=None, count=None):
+    i = 2
+    primes = []
+    while ((limit is None or i < limit) and
+           (count is None or len(primes) < count)):
         flag = True
         for prime in primes:
+            if prime * prime > i:
+                break
             if i % prime == 0:
                 flag = False
                 break
         if flag:
             primes.append(i)
-    return primes
+            yield i
+        i += 1
 
 
 def proper_divisors(n):
