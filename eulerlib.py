@@ -43,16 +43,24 @@ def _unit_tests():
     is_prime_test = [(-1, False), (0, False), (1, False), (2, True), (3, True),
                      (4, False), (5, True), (6, False), (7, True), (8, False),
                      (9, False), (10, False), (11, True), (12, False)]
-    prime_generator_test = [(100,
-                             [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
-                              43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]),
-                            (1, [])]
+    prime_generator_limit_test = [
+        (60, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59]),
+        (1, [])
+    ]
+    prime_generator_count_test = [
+        (10, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]),
+        (1, [2]),
+        [0, []]
+    ]
     proper_divisors_test = [(1, [1]), (2, [1]), (3, [1]), (4, [1, 2]),
                             (5, [1]), (6, [1, 2, 3]), (7, [1]), (8, [1, 2, 4]),
                             (9, [1, 3]), (10, [1, 2, 5]), (11, [1]),
                             (12, [1, 2, 3, 4, 6])]
     function_tests = [(is_prime, is_prime_test),
-                      (prime_generator, prime_generator_test),
+                      (lambda x: list(prime_generator(limit=x)),
+                       prime_generator_limit_test),
+                      (lambda x: list(prime_generator(count=x)),
+                       prime_generator_count_test),
                       (proper_divisors, proper_divisors_test)]
     for func, test in function_tests:
         for inp, out in test:
