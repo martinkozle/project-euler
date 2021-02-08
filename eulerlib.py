@@ -27,7 +27,7 @@ def prime_generator(*, limit=None, count=None):
         i += 1
 
 
-def proper_divisors(n):
+def proper_divisors(n, raw=False):
     result = {1}
     i = 2
     while i * i <= n:
@@ -35,7 +35,10 @@ def proper_divisors(n):
             result.add(i)
             result.add(n // i)
         i += 1
-    return sorted(result)
+    if raw:
+        return result
+    else:
+        return sorted(result)
 
 
 def _unit_tests():
