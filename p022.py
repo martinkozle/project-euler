@@ -1,3 +1,6 @@
+# 871198282
+
+
 def main():
     with open('data/022.txt', 'r') as f:
         line = f.readline()

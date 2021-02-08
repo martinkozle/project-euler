@@ -1,3 +1,6 @@
+# 70600674
+
+
 def main():
     mat = []
     mat.extend([[0] * 26] * 3)
