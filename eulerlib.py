@@ -27,18 +27,18 @@ def prime_generator(*, limit=None, count=None):
         i += 1
 
 
-def proper_divisors(n, raw=False):
-    result = {1}
+def proper_divisors(n):
+    result_first = [1]
+    result_last = []
     i = 2
     while i * i <= n:
         if n % i == 0:
-            result.add(i)
-            result.add(n // i)
+            result_first.append(i)
+            if i != n // i:
+                result_last.append(n // i)
         i += 1
-    if raw:
-        return result
-    else:
-        return sorted(result)
+    result = result_first + result_last[::-1]
+    return result
 
 
 def _unit_tests():
