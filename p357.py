@@ -1,4 +1,5 @@
 # 1739023853137
+# this one took an hour and 50 minutes to compute
 from eulerlib import proper_divisors, prime_generator
 
 
@@ -6,7 +7,6 @@ from tqdm import tqdm
 
 
 def main():
-    # this one took an hour and 50 minutes to compute
     total = 100000000
     primes_set = set(tqdm(prime_generator(limit=total), total=total))
     s = 0
