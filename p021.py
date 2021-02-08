@@ -1,4 +1,4 @@
-from eulerlib import *
+from eulerlib import proper_divisors
 
 
 def main():
